@@ -3,66 +3,594 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Christian Senajon · BSIS Graduating Portfolio</title>
+    <title>Christian Senajon · BSIS Portfolio | Manage Certificates</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        *{margin:0;padding:0;box-sizing:border-box;}
-        body{font-family:'Inter',sans-serif;background-color:#f9fafc;color:#1e293b;line-height:1.5;scroll-behavior:smooth;}
-        .container{max-width:1200px;margin:0 auto;padding:0 28px;}
-        h2{font-size:2rem;margin-bottom:1.5rem;border-left:5px solid #3b82f6;padding-left:1rem;}
-        .section{padding:80px 0;border-bottom:1px solid #e2e8f0;}
-        .navbar{background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);position:sticky;top:0;z-index:100;}
-        .nav-container{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;flex-wrap:wrap;}
-        .logo{font-weight:800;font-size:1.7rem;background:linear-gradient(135deg,#1e293b,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;}
-        .nav-links{display:flex;gap:2.2rem;list-style:none;}
-        .nav-links a{text-decoration:none;font-weight:500;color:#334155;}
-        .nav-links a:hover{color:#3b82f6;}
-        .hero{padding:80px 0 60px;background:linear-gradient(145deg,#fff,#f8fafd);}
-        .hero-grid{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:3rem;}
-        .hero-content{flex:1.5;}
-        .hero-badge{background:#eef2ff;color:#2563eb;display:inline-block;padding:0.25rem 0.9rem;border-radius:40px;font-size:0.8rem;font-weight:600;margin-bottom:1.2rem;}
-        .hero-content h1 span{color:#3b82f6;}
-        .hero-desc{font-size:1.1rem;color:#475569;margin:1.5rem 0 2rem;}
-        .btn-group{display:flex;gap:1rem;flex-wrap:wrap;}
-        .btn-primary{background:#1e293b;color:white;padding:0.8rem 1.8rem;border-radius:40px;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:8px;}
-        .btn-primary:hover{background:#0f172a;}
-        .btn-outline{background:transparent;border:1.5px solid #cbd5e1;color:#1e293b;padding:0.8rem 1.8rem;border-radius:40px;text-decoration:none;font-weight:600;}
-        .hero-avatar{flex:1;display:flex;justify-content:center;}
-        .avatar-circle{width:280px;height:280px;background:linear-gradient(145deg,#e0f2fe,#bfdbfe);border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;}
-        .avatar-circle img{width:100%;height:100%;object-fit:cover;}
-        .skills-grid{display:flex;flex-wrap:wrap;gap:1rem;margin-top:0.8rem;}
-        .skill-tag{background:white;border-radius:50px;padding:0.6rem 1.4rem;font-weight:500;border:1px solid #e2e8f0;}
-        .skill-tag i{margin-right:8px;color:#3b82f6;}
-        .journey-intro{max-width:900px;margin-bottom:2rem;background:#f8fafc;padding:1.8rem 2rem;border-radius:28px;border-left:5px solid #3b82f6;}
-        .journey-badge-list{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px;}
-        .journey-badge-list span{background:#eef2ff;padding:0.3rem 1rem;border-radius:40px;font-size:0.75rem;font-weight:600;color:#1e40af;}
-        .carousel-wrapper{background:#fff;border-radius:32px;overflow:hidden;border:1px solid #eef2ff;}
-        .carousel-container{position:relative;}
-        .carousel-slide{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;cursor:pointer;}
-        .carousel-slide img{width:100%;height:100%;object-fit:cover;}
-        .carousel-controls{position:absolute;top:50%;transform:translateY(-50%);width:100%;display:flex;justify-content:space-between;padding:0 20px;z-index:10;}
-        .carousel-btn{background:rgba(0,0,0,0.6);border:none;width:44px;height:44px;border-radius:50%;color:white;font-size:1.4rem;cursor:pointer;}
-        .carousel-dots{display:flex;justify-content:center;gap:12px;padding:1rem 0;background:white;}
-        .dot{width:10px;height:10px;border-radius:50%;background:#cbd5e1;cursor:pointer;}
-        .dot.active{background:#3b82f6;width:28px;border-radius:20px;}
-        .certificates-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2rem;}
-        .cert-card{background:white;border-radius:20px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.05);border:1px solid #eef2ff;}
-        .cert-img{height:180px;overflow:hidden;cursor:pointer;position:relative;}
-        .cert-img img{width:100%;height:100%;object-fit:cover;}
-        .cert-content{padding:1.4rem;}
-        .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:2rem;}
-        .project-card{background:white;border-radius:24px;overflow:hidden;border:1px solid #eef2ff;}
-        .card-img{height:190px;overflow:hidden;cursor:pointer;}
-        .card-img img{width:100%;height:100%;object-fit:cover;}
-        .card-content{padding:1.6rem;}
-        .tech-stack{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.5rem;}
-        .tech-stack span{background:#f1f5f9;font-size:0.7rem;padding:0.3rem 0.8rem;border-radius:20px;}
-        .timeline-item{display:flex;gap:1.2rem;margin-bottom:2rem;background:white;padding:1.6rem;border-radius:24px;border:1px solid #eef2ff;}
-        .timeline-icon{font-size:2rem;color:#3b82f6;min-width:55px;}
-        .achievement-badge{display:inline-block;background:#eef2ff;border-radius:30px;padding:0.25rem 0.8rem;font-size:0.7rem;font-weight:600;color:#2563eb;margin-right:0.6rem;margin-top:0.5rem;}
-        
-        /* CONTACT SECTION - FIXED SPACING & MARGINS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafc;
+            color: #1e293b;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid #3b82f6;
+            padding-left: 1rem;
+        }
+
+        .section {
+            padding: 80px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .bg-muted {
+            background: #f8fafc;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.7rem;
+            background: linear-gradient(135deg, #1e293b, #3b82f6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #334155;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #3b82f6;
+        }
+
+        .hero {
+            padding: 80px 0 60px;
+            background: linear-gradient(145deg, #fff, #f8fafd);
+        }
+
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+        }
+
+        .hero-content {
+            flex: 1.5;
+        }
+
+        .hero-badge {
+            background: #eef2ff;
+            color: #2563eb;
+            display: inline-block;
+            padding: 0.25rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-content h1 span {
+            color: #3b82f6;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: #475569;
+            margin: 1.5rem 0 2rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #1e293b;
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: #0f172a;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid #cbd5e1;
+            color: #1e293b;
+            padding: 0.8rem 1.8rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-outline:hover {
+            border-color: #3b82f6;
+            color: #3b82f6;
+        }
+
+        .hero-avatar {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .avatar-circle {
+            width: 280px;
+            height: 280px;
+            background: linear-gradient(145deg, #e0f2fe, #bfdbfe);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 12px 25px -8px rgba(0, 0, 0, 0.1);
+        }
+
+        .avatar-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.8rem;
+        }
+
+        .skill-tag {
+            background: white;
+            border-radius: 50px;
+            padding: 0.6rem 1.4rem;
+            font-weight: 500;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+        }
+
+        .skill-tag i {
+            margin-right: 8px;
+            color: #3b82f6;
+        }
+
+        .journey-intro {
+            max-width: 900px;
+            margin-bottom: 2rem;
+            background: #f8fafc;
+            padding: 1.8rem 2rem;
+            border-radius: 28px;
+            border-left: 5px solid #3b82f6;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+        }
+
+        .journey-badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .journey-badge-list span {
+            background: #eef2ff;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #1e40af;
+        }
+
+        /* CAROUSEL STYLES */
+        .carousel-wrapper {
+            background: #fff;
+            border-radius: 32px;
+            overflow: hidden;
+            border: 1px solid #eef2ff;
+            box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.05);
+        }
+
+        .carousel-container {
+            position: relative;
+        }
+
+        .carousel-slide {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .carousel-slide:hover img {
+            transform: scale(1.02);
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 10;
+        }
+
+        .carousel-btn {
+            background: rgba(0, 0, 0, 0.6);
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.4rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .carousel-btn:hover {
+            background: #3b82f6;
+            transform: scale(1.03);
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            padding: 1rem 0;
+            background: white;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #cbd5e1;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .dot.active {
+            background: #3b82f6;
+            width: 28px;
+            border-radius: 20px;
+        }
+
+        /* CERTIFICATES GRID */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .cert-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eef2ff;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.1);
+        }
+
+        .cert-img {
+            height: 180px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            background: #f1f5f9;
+        }
+
+        .cert-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .cert-img:hover img {
+            transform: scale(1.03);
+        }
+
+        .cert-content {
+            padding: 1.4rem;
+        }
+
+        .cert-issuer {
+            font-size: 0.75rem;
+            color: #3b82f6;
+            font-weight: 600;
+            margin: 0.3rem 0 0.5rem;
+        }
+
+        /* ADD CERTIFICATE FORM */
+        .add-cert-section {
+            background: white;
+            border-radius: 28px;
+            padding: 1.8rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid #eef2ff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+        .add-cert-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+        .add-cert-form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: flex-end;
+        }
+        .form-field {
+            flex: 1;
+            min-width: 180px;
+        }
+        .form-field label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: #475569;
+        }
+        .form-field input {
+            width: 100%;
+            padding: 0.7rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            font-size: 0.9rem;
+        }
+        .btn-add {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.6rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn-add:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+        .delete-cert {
+            background: #fee2e2;
+            color: #dc2626;
+            border: none;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-top: 0.6rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .delete-cert:hover {
+            background: #fecaca;
+        }
+
+        /* PROJECTS GRID */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid #eef2ff;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.12);
+            border-color: #cbdff2;
+        }
+
+        .card-img {
+            height: 190px;
+            overflow: hidden;
+            background: #eef2ff;
+            cursor: pointer;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .project-card:hover .card-img img {
+            transform: scale(1.02);
+        }
+
+        .card-content {
+            padding: 1.6rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .tech-stack span {
+            background: #f1f5f9;
+            font-size: 0.7rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+        }
+
+        /* TIMELINE */
+        .timeline-item {
+            display: flex;
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+            background: white;
+            padding: 1.6rem;
+            border-radius: 24px;
+            border: 1px solid #eef2ff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .timeline-icon {
+            font-size: 2rem;
+            color: #3b82f6;
+            min-width: 55px;
+        }
+
+        .achievement-badge {
+            display: inline-block;
+            background: #eef2ff;
+            border-radius: 30px;
+            padding: 0.25rem 0.8rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #2563eb;
+            margin-right: 0.6rem;
+            margin-top: 0.5rem;
+        }
+
+        /* FULL SIZE MODAL LIGHTBOX */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            backdrop-filter: blur(8px);
+        }
+
+        .modal-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            background: transparent;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: white;
+            font-size: 2.2rem;
+            font-weight: bold;
+            transition: 0.2s;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.7);
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            z-index: 2001;
+        }
+
+        .close-modal:hover {
+            background: #ef4444;
+            transform: scale(1.05);
+        }
+
+        /* CONTACT SECTION */
         .contact-flex {
             display: flex;
             flex-wrap: wrap;
@@ -71,18 +599,21 @@
             border-radius: 2rem;
             padding: 2rem 2.5rem;
             border: 1px solid #eef2ff;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
         }
+
         .contact-info {
             flex: 1;
             padding-right: 1rem;
         }
+
         .contact-info h3 {
             font-size: 1.5rem;
             margin-bottom: 1.2rem;
             color: #0f172a;
             font-weight: 700;
         }
+
         .contact-detail {
             margin: 1.2rem 0;
             display: flex;
@@ -92,6 +623,7 @@
             font-size: 1rem;
             padding: 0.3rem 0;
         }
+
         .contact-detail i {
             width: 32px;
             height: 32px;
@@ -103,16 +635,14 @@
             color: #3b82f6;
             font-size: 1rem;
         }
-        .contact-detail span {
-            color: #1e293b;
-            font-weight: 500;
-        }
+
         .social-links {
             display: flex;
             gap: 1rem;
             margin-top: 2rem;
             flex-wrap: wrap;
         }
+
         .social-link-item {
             background: #f1f5f9;
             width: 46px;
@@ -124,29 +654,28 @@
             color: #1e293b;
             font-size: 1.3rem;
             text-decoration: none;
-            transition: all 0.25s ease;
+            transition: all 0.25s;
         }
+
         .social-link-item:hover {
             background: #3b82f6;
             color: white;
             transform: translateY(-3px);
         }
+
         .contact-form {
             flex: 1;
             background: #fefefe;
             border-radius: 1.5rem;
             padding: 0.2rem;
         }
-        .contact-form h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.2rem;
-            color: #0f172a;
-            font-weight: 700;
-        }
+
         .form-group {
             margin-bottom: 1.2rem;
         }
-        input, textarea {
+
+        input,
+        textarea {
             width: 100%;
             padding: 0.9rem 1.2rem;
             border: 1px solid #e2e8f0;
@@ -154,13 +683,16 @@
             font-family: inherit;
             font-size: 0.95rem;
             background: white;
-            transition: all 0.2s ease;
+            transition: all 0.2s;
         }
-        input:focus, textarea:focus {
+
+        input:focus,
+        textarea:focus {
             outline: none;
             border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
+
         button[type="submit"] {
             background: #1e293b;
             border: none;
@@ -170,178 +702,403 @@
             font-weight: 600;
             font-size: 0.95rem;
             cursor: pointer;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+            transition: all 0.2s;
         }
+
         button[type="submit"]:hover {
             background: #3b82f6;
             transform: translateY(-2px);
         }
-        #formFeedback {
-            margin-top: 1rem;
-            font-size: 0.85rem;
-            font-weight: 500;
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
         }
-        
-        footer{text-align:center;padding:2rem 0;color:#64748b;border-top:1px solid #e2e8f0;}
-        @media(max-width:780px){
-            .hero-grid{flex-direction:column-reverse;text-align:center;} 
-            h1{font-size:2.5rem;}
-            .contact-flex{padding:1.5rem; gap:1.8rem;}
-            .contact-info{padding-right:0;}
-            .contact-detail{margin:0.8rem 0;}
+
+        @media (max-width: 780px) {
+            .hero-grid {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .contact-flex {
+                padding: 1.5rem;
+            }
+            .close-modal {
+                top: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.8rem;
+            }
+            .add-cert-form {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
 
-<nav class="navbar">
-    <div class="container nav-container">
-        <div class="logo">Christian Senajon</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#journey">My Journey</a></li>
-            <li><a href="#certificates">Certificates</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">Christian Senajon</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#journey">My Journey</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge"><i class="fas fa-graduation-cap"></i> BSIS Graduating Student · Class of 2026</div>
+                    <h1>Building digital solutions <br> with <span>curiosity & code</span></h1>
+                    <p class="hero-desc">I'm <strong>Christian Senajon</strong> — a graduating BSIS student passionate about information systems, web development, and data analysis.</p>
+                    <div class="btn-group"><a href="#projects" class="btn-primary"><i class="fas fa-arrow-down"></i> View Work</a><a href="#contact" class="btn-outline"><i class="fas fa-paper-plane"></i> Get in touch</a></div>
+                    <div class="skills-grid">
+                        <div class="skill-tag"><i class="fas fa-chart-line"></i> System Analyst</div>
+                        <div class="skill-tag"><i class="fab fa-chrome"></i> Web Developer</div>
+                        <div class="skill-tag"><i class="fas fa-file-excel"></i> Excel Dashboard Dev</div>
+                        <div class="skill-tag"><i class="fab fa-python"></i> Python Essentials</div>
+                    </div>
+                </div>
+                <div class="hero-avatar">
+                    <div class="avatar-circle"><img src="profile.jpg" alt="Christian Senajon" onerror="this.src='https://placehold.co/400x400?text=Christian+Senajon'"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="journey" class="section">
+            <div class="container">
+                <h2><i class="fas fa-road"></i> My BSIS Journey · Through the Years</h2>
+             <div class="journey-intro">
+    <i class="fas fa-quote-left" style="color:#3b82f6; margin-right:8px;"></i>
+    I'm <strong>Christian Senajon</strong>, a <strong>graduating Bachelor of Science in Information Systems</strong> student at Davao del Norte State College.
+    I successfully completed my <strong>On-the-Job Training (OJT) at the Office of the Human Resource Management Division (HRMD)</strong> of DNSC.
+    I also successfully finished my <strong>Capstone Project: Online Training Management System</strong> at Panabo Skills Training Center.
+    <div class="journey-badge-list">
+        <span><i class="fas fa-check-circle"></i> OJT at DNSC HRMD · Certificate Received</span>
+        <span><i class="fas fa-check-circle"></i> Capstone Completion Certificate</span>
+        <span><i class="fas fa-graduation-cap"></i> Graduating Class of 2026</span>
     </div>
-</nav>
-
-<main>
-    <section id="home" class="hero">
-        <div class="container hero-grid">
-            <div class="hero-content">
-                <div class="hero-badge"><i class="fas fa-graduation-cap"></i> BSIS Graduating Student · Class of 2026</div>
-                <h1>Building digital solutions <br> with <span>curiosity & code</span></h1>
-                <p class="hero-desc">I'm <strong>Christian Senajon</strong> — a graduating BSIS student passionate about information systems, web development, and data analysis.</p>
-                <div class="btn-group"><a href="#projects" class="btn-primary"><i class="fas fa-arrow-down"></i> View Work</a><a href="#contact" class="btn-outline"><i class="fas fa-paper-plane"></i> Get in touch</a></div>
-                <div class="skills-grid"><div class="skill-tag"><i class="fas fa-chart-line"></i> System Analyst</div><div class="skill-tag"><i class="fab fa-chrome"></i> Web Developer</div><div class="skill-tag"><i class="fas fa-file-excel"></i> Excel Dashboard Dev</div><div class="skill-tag"><i class="fab fa-python"></i> Python Essentials</div></div>
-            </div>
-            <div class="hero-avatar"><div class="avatar-circle"><img src="profile.jpg" alt="Christian Senajon"></div></div>
-        </div>
-    </section>
-
-    <section id="journey" class="section">
-        <div class="container">
-            <h2><i class="fas fa-road"></i> My BSIS Journey · Through the Years</h2>
-            <div class="journey-intro">
-                <i class="fas fa-quote-left" style="color:#3b82f6; margin-right:8px;"></i> 
-                I'm <strong>Christian Senajon</strong>, a <strong>graduating Bachelor of Science in Information Systems</strong> student at Davao del Norte State College. 
-                I successfully completed my <strong>On-the-Job Training (OJT) at the Office of the Human Resource Management Division (HRMD)</strong> of DNSC.
-                <div class="journey-badge-list">
-                    <span><i class="fas fa-check-circle"></i> OJT at DNSC HRMD · Certificate Received</span>
-                    <span><i class="fas fa-check-circle"></i> Capstone Completion Certificate</span>
-                    <span><i class="fas fa-graduation-cap"></i> Graduating Class of 2026</span>
-                </div>
-            </div>
-            <div class="carousel-wrapper">
-                <div class="carousel-container">
-                    <div class="carousel-slide"><img id="carouselImg" src="journey-2022.jpg" alt="Journey"></div>
-                    <div class="carousel-controls"><button class="carousel-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button><button class="carousel-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button></div>
-                </div>
-                <div class="carousel-dots" id="dotsContainer"></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="certificates" class="section bg-muted">
-        <div class="container">
-            <h2><i class="fas fa-certificate"></i> Certificates & Achievements</h2>
-            <div class="certificates-grid">
-                <div class="cert-card"><div class="cert-img"><img src="python-essentials-1.jpg" alt="Python 1"></div><div class="cert-content"><h3>Python Essentials 1</h3><div class="cert-issuer">Cisco</div><p>Fundamentals of Python programming.</p></div></div>
-                <div class="cert-card"><div class="cert-img"><img src="python-essentials-2.jpg" alt="Python 2"></div><div class="cert-content"><h3>Python Essentials 2</h3><div class="cert-issuer">Cisco</div><p>Advanced OOP and modules.</p></div></div>
-                <div class="cert-card"><div class="cert-img"><img src="ojt-cert.jpg" alt="OJT"></div><div class="cert-content"><h3>OJT Certificate of Completion</h3><div class="cert-issuer">DNSC - HRMD Division</div><p>Completed On-the-Job Training at HRMD.</p></div></div>
-                <div class="cert-card"><div class="cert-img"><img src="treeplanting.jpg" alt="Tree"></div><div class="cert-content"><h3>Tree Planting Certificate</h3><div class="cert-issuer">DNSC Environment</div><p>Sustainability program.</p></div></div>
-                <div class="cert-card"><div class="cert-img"><img src="patent-cert.png" alt="Patent"></div><div class="cert-content"><h3>Patent Certificate</h3><div class="cert-issuer">IPO Philippines</div><p>Innovation recognition.</p></div></div>
-                <div class="cert-card"><div class="cert-img"><img src="capstone.png" alt="Capstone"></div><div class="cert-content"><h3>Capstone Completion Certificate</h3><div class="cert-issuer">Panabo Skills Training Center</div><p>Online Training Management System.</p></div></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="section">
-        <div class="container"><h2><i class="fas fa-code"></i> Featured projects</h2><div class="projects-grid">
-            <div class="project-card"><div class="card-img"><img src="crud.png" alt="CRUD"></div><div class="card-content"><h3>Student Library CRUD (Java)</h3><div class="tech-stack"><span>Java</span><span>MySQL</span></div></div></div>
-            <div class="project-card"><div class="card-img"><img src="atm.png" alt="ATM"></div><div class="card-content"><h3>ATM System (NetBeans)</h3><div class="tech-stack"><span>Java</span><span>Swing</span></div></div></div>
-            <div class="project-card"><div class="card-img"><img src="hr-dashboard.png" alt="Excel"></div><div class="card-content"><h3>Excel Dashboard Developer</h3><div class="tech-stack"><span>VBA</span><span>Power Query</span></div></div></div>
-            <div class="project-card"><div class="card-img"><img src="info-system.png" alt="Website"></div><div class="card-content"><h3>Information Website System</h3><div class="tech-stack"><span>Laravel</span><span>PHP</span></div></div></div>
-        </div></div>
-    </section>
-
-    <section id="experience" class="section bg-muted">
-        <div class="container"><h2><i class="fas fa-briefcase"></i> Work Experience & Education</h2>
-            <div class="timeline-item"><div class="timeline-icon"><i class="fas fa-water"></i></div><div class="timeline-content"><div class="timeline-meta">2021–Present</div><h3>Operations Manager · ARM Water Refilling Station</h3><p>Lead operations, inventory, digital dashboards boosting efficiency by 30%.</p><span class="achievement-badge">Business Analytics</span></div></div>
-            <div class="timeline-item"><div class="timeline-icon"><i class="fas fa-file-excel"></i></div><div class="timeline-content"><div class="timeline-meta">2024–Present</div><h3>Advanced Excel Dashboard Developer · Freelance</h3><p>Design dashboards with PivotTables, Power Query, VBA macros.</p><span class="achievement-badge">Power Query</span><span class="achievement-badge">VBA</span></div></div>
-            <div class="timeline-item"><div class="timeline-icon"><i class="fab fa-chrome"></i></div><div class="timeline-content"><div class="timeline-meta">2023–Present</div><h3>Web Developer · Freelance & Academic</h3><p>Built websites using Laravel, PHP, JavaScript, MySQL.</p><span class="achievement-badge">Laravel</span><span class="achievement-badge">MySQL</span></div></div>
-            <div class="timeline-item"><div class="timeline-icon"><i class="fas fa-laptop-code"></i></div><div class="timeline-content"><div class="timeline-meta">2026</div><h3>On-the-Job Trainee · DNSC - HRMD Division</h3><p>Completed OJT at HRMD. Assisted in HRIS support, digital archiving.</p><span class="achievement-badge">HRIS</span><span class="achievement-badge">OJT Certificate</span></div></div>
-            <div class="timeline-item"><div class="timeline-icon"><i class="fas fa-university"></i></div><div class="timeline-content"><div class="timeline-meta">2022–2026</div><h3>BS Information Systems · Davao del Norte State College</h3><p>Graduating with coursework in Database Management, Systems Analysis, Web Development.</p><span class="achievement-badge">Graduating 2026</span></div></div>
-        </div>
-    </section>
-
-    <!-- CONTACT SECTION - IMPROVED SPACING -->
-    <section id="contact" class="section bg-muted">
-        <div class="container">
-            <h2><i class="fas fa-envelope-open-text"></i> Let's connect</h2>
-            <div class="contact-flex">
-                <div class="contact-info">
-                    <h3><i class="fas fa-user-astronaut" style="color:#3b82f6; margin-right:8px;"></i> Get in touch</h3>
-                    <div class="contact-detail">
-                        <i class="fas fa-envelope"></i>
-                        <span>christian.senajon@dnsc.edu.ph</span>
-                    </div>
-                    <div class="contact-detail">
-                        <i class="fas fa-phone-alt"></i>
-                        <span>0938 292 9039</span>
-                    </div>
-                    <div class="contact-detail">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>P-2 Manga, Upper Licanan, Panabo City</span>
-                    </div>
-                    <div class="social-links">
-                        <a href="#" class="social-link-item" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-link-item" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link-item" target="_blank"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" placeholder="Full name" required>
+</div>
+                <div class="carousel-wrapper">
+                    <div class="carousel-container">
+                        <div class="carousel-slide" id="carouselClickable">
+                            <img id="carouselImg" src="journey-2022.jpg" alt="Journey Gallery">
                         </div>
-                        <div class="form-group">
-                            <input type="email" id="email" placeholder="Email address" required>
+                        <div class="carousel-controls">
+                            <button class="carousel-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+                            <button class="carousel-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
                         </div>
-                        <div class="form-group">
-                            <textarea rows="3" id="message" placeholder="Your message" required></textarea>
+                    </div>
+                    <div class="carousel-dots" id="dotsContainer"></div>
+                </div>
+                <p style="text-align: center; margin-top: 1rem; font-size: 0.85rem; color: #3b82f6;"><i class="fas fa-expand"></i> Click any image to view full size</p>
+            </div>
+        </section>
+
+        <section id="certificates" class="section bg-muted">
+            <div class="container">
+                <h2><i class="fas fa-certificate"></i> Certificates & Achievements</h2>
+                
+                <!-- ADD CERTIFICATE FORM - NEW FEATURE (preserves original code) -->
+                <div class="add-cert-section">
+                    <div class="add-cert-title">
+                        <i class="fas fa-plus-circle" style="color:#3b82f6;"></i> 
+                        <span>Add New Certificate or Achievement</span>
+                    </div>
+                    <div class="add-cert-form">
+                        <div class="form-field">
+                            <label>Certificate Title</label>
+                            <input type="text" id="newCertTitle" placeholder="e.g., Data Analytics Certification">
                         </div>
-                        <button type="submit"><i class="fas fa-paper-plane"></i> Send message</button>
-                        <p id="formFeedback"></p>
-                    </form>
+                        <div class="form-field">
+                            <label>Issuer / Organization</label>
+                            <input type="text" id="newCertIssuer" placeholder="e.g., Google, Cisco">
+                        </div>
+                        <div class="form-field">
+                            <label>Description (optional)</label>
+                            <input type="text" id="newCertDesc" placeholder="Short description">
+                        </div>
+                        <div class="form-field">
+                            <label>Image Filename (e.g., my-cert.jpg)</label>
+                            <input type="text" id="newCertImg" placeholder="certificate-image.jpg">
+                        </div>
+                        <button class="btn-add" id="addCertBtn"><i class="fas fa-save"></i> Add Certificate</button>
+                    </div>
+                    <p style="font-size:0.7rem; margin-top: 12px; color:#6c757d;"><i class="fas fa-info-circle"></i> Tip: Place your image file in the same folder, or use full URL (http://...)</p>
+                </div>
+                
+                <div class="certificates-grid" id="certGrid"></div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="container">
+                <h2><i class="fas fa-code"></i> Featured projects</h2>
+                <div class="projects-grid" id="projectsGrid"></div>
+            </div>
+        </section>
+
+        <section id="experience" class="section bg-muted">
+            <div class="container">
+                <h2><i class="fas fa-briefcase"></i> Work Experience & Education</h2>
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fas fa-water"></i></div>
+                    <div class="timeline-content">
+                        <div class="timeline-meta">2021–Present</div>
+                        <h3>Operations Manager · ARM Water Refilling Station</h3>
+                        <p>Lead operations, inventory, digital dashboards boosting efficiency by 30%.</p><span class="achievement-badge">Business Analytics</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fas fa-file-excel"></i></div>
+                    <div class="timeline-content">
+                        <div class="timeline-meta">2024–Present</div>
+                        <h3>Advanced Excel Dashboard Developer · Freelance</h3>
+                        <p>Design dashboards with PivotTables, Power Query, VBA macros.</p><span class="achievement-badge">Power Query</span><span class="achievement-badge">VBA</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fab fa-chrome"></i></div>
+                    <div class="timeline-content">
+                        <div class="timeline-meta">2023–Present</div>
+                        <h3>Web Developer · Freelance & Academic</h3>
+                        <p>Built websites using Laravel, PHP, JavaScript, MySQL.</p><span class="achievement-badge">Laravel</span><span class="achievement-badge">MySQL</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fas fa-laptop-code"></i></div>
+                    <div class="timeline-content">
+                        <div class="timeline-meta">2026</div>
+                        <h3>On-the-Job Trainee · DNSC - HRMD Division</h3>
+                        <p>Completed OJT at HRMD. Assisted in HRIS support, digital archiving.</p><span class="achievement-badge">HRIS</span><span class="achievement-badge">OJT Certificate</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fas fa-university"></i></div>
+                    <div class="timeline-content">
+                        <div class="timeline-meta">2022–2026</div>
+                        <h3>BS Information Systems · Davao del Norte State College</h3>
+                        <p>Graduating with coursework in Database Management, Systems Analysis, Web Development.</p><span class="achievement-badge">Graduating 2026</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-</main>
+        </section>
 
-<footer>
-    <div class="container">
-        <p>© 2026 Christian Senajon — Graduating BSIS Student | OJT at DNSC HRMD · Capstone Certificate</p>
+        <section id="contact" class="section bg-muted">
+            <div class="container">
+                <h2><i class="fas fa-envelope-open-text"></i> Let's connect</h2>
+                <div class="contact-flex">
+                    <div class="contact-info">
+                        <h3><i class="fas fa-user-astronaut" style="color:#3b82f6; margin-right:8px;"></i> Get in touch</h3>
+                        <div class="contact-detail"><i class="fas fa-envelope"></i><span>christian.senajon@dnsc.edu.ph</span></div>
+                        <div class="contact-detail"><i class="fas fa-phone-alt"></i><span>0938 292 9039</span></div>
+                        <div class="contact-detail"><i class="fas fa-map-marker-alt"></i><span>P-2 Manga, Upper Licanan, Panabo City</span></div>
+                        <div class="social-links"><a href="#" class="social-link-item"><i class="fab fa-linkedin-in"></i></a><a href="#" class="social-link-item"><i class="fab fa-facebook-f"></i></a><a href="#" class="social-link-item"><i class="fab fa-instagram"></i></a></div>
+                    </div>
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group"><input type="text" id="name" placeholder="Full name" required></div>
+                            <div class="form-group"><input type="email" id="email" placeholder="Email address" required></div>
+                            <div class="form-group"><textarea rows="3" id="message" placeholder="Your message" required></textarea></div>
+                            <button type="submit"><i class="fas fa-paper-plane"></i> Send message</button>
+                            <p id="formFeedback"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Christian Senajon — Graduating BSIS Student | OJT at DNSC HRMD · Capstone Certificate</p>
+        </div>
+    </footer>
+
+    <!-- FULL SIZE MODAL LIGHTBOX -->
+    <div id="imageModal" class="modal">
+        <div class="close-modal" id="closeModalBtn">&times;</div>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Full size view">
+        </div>
     </div>
-</footer>
 
-<script>
-    const slides = ["journey-2022.jpg","hrpanalo.jpg","journey-2024.jpg","gropo.jpg","journey-2025.jpg","hrpanalo.jpg","hrpaldo.jpg","journey-2026.jpg","entrepp.jpg","volyball.jpg","rotc.jpg"];
-    let idx=0, interval;
-    const img=document.getElementById('carouselImg'), prev=document.getElementById('prevBtn'), next=document.getElementById('nextBtn'), dots=document.getElementById('dotsContainer');
-    function load(i){img.src=slides[i%slides.length]; document.querySelectorAll('.dot').forEach((d,di)=>{d.classList.toggle('active',di===i);});}
-    function createDots(){dots.innerHTML=''; slides.forEach((_,i)=>{let d=document.createElement('div'); d.classList.add('dot'); if(i===idx)d.classList.add('active'); d.onclick=()=>{clearInterval(interval); idx=i; load(idx); interval=setInterval(()=>{idx=(idx+1)%slides.length; load(idx);},4000);}; dots.appendChild(d);});}
-    prev.onclick=()=>{clearInterval(interval); idx=(idx-1+slides.length)%slides.length; load(idx); interval=setInterval(()=>{idx=(idx+1)%slides.length; load(idx);},4000);};
-    next.onclick=()=>{clearInterval(interval); idx=(idx+1)%slides.length; load(idx); interval=setInterval(()=>{idx=(idx+1)%slides.length; load(idx);},4000);};
-    createDots(); load(0); interval=setInterval(()=>{idx=(idx+1)%slides.length; load(idx);},4000);
-    document.getElementById('contactForm').addEventListener('submit',(e)=>{e.preventDefault(); let fb=document.getElementById('formFeedback'); fb.textContent='✨ Message sent! I will reply soon.'; fb.style.color='#166534'; setTimeout(()=>fb.textContent='',4000); e.target.reset();});
-</script>
+    <script>
+        // ---------- ORIGINAL DATA (unchanged) ----------
+        let certificatesData = [
+            { title: "Python Essentials 1", issuer: "Cisco", desc: "Fundamentals of Python programming.", img: "python-essentials-1.jpg" },
+            { title: "Python Essentials 2", issuer: "Cisco", desc: "Advanced OOP and modules.", img: "python-essentials-2.jpg" },
+            { title: "OJT Certificate of Completion", issuer: "DNSC - HRMD Division", desc: "Completed On-the-Job Training at HRMD.", img: "ojt-cert.jpg" },
+            { title: "Tree Planting Certificate", issuer: "DNSC Environment", desc: "Sustainability program.", img: "treeplanting.jpg" },
+            { title: "Patent Certificate", issuer: "IPO Philippines", desc: "Innovation recognition.", img: "patent-cert.png" },
+            { title: "Capstone Completion Certificate", issuer: "Panabo Skills Training Center", desc: "Online Training Management System.", img: "capstone.png" }
+        ];
+
+        const projectsData = [
+            { name: "Student Library CRUD (Java)", tech: ["Java", "MySQL"], img: "crud.png" },
+            { name: "ATM System (NetBeans)", tech: ["Java", "Swing"], img: "atm.png" },
+            { name: "Excel Dashboard Developer", tech: ["VBA", "Power Query"], img: "hr-dashboard.png" },
+            { name: "Information Website System", tech: ["Laravel", "PHP"], img: "info-system.png" }
+        ];
+
+        const journeySlides = [
+            "journey-2022.jpg", "hrpanalo.jpg", "journey-2024.jpg", "gropo.jpg",
+            "journey-2025.jpg", "hrpanalo.jpg", "hrpaldo.jpg", "journey-2026.jpg",
+            "entrepp.jpg", "volyball.jpg", "rotc.jpg"
+        ];
+
+        // LIGHTBOX SYSTEM (FULL SIZE)
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        function openFullSize(imgSrc) {
+            modal.style.display = 'flex';
+            modalImg.src = imgSrc;
+            modalImg.onerror = function() { this.src = 'https://placehold.co/1200x800?text=Image+Not+Found'; };
+        }
+
+        function closeModal() { modal.style.display = 'none'; modalImg.src = ''; }
+        modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+        closeModalBtn.addEventListener('click', closeModal);
+        document.addEventListener('keydown', (e) => { if (modal.style.display === 'flex' && e.key === 'Escape') closeModal(); });
+
+        // RENDER CERTIFICATES (with delete button for added ones)
+        const certGrid = document.getElementById('certGrid');
+        function renderCertificates() {
+            certGrid.innerHTML = '';
+            certificatesData.forEach((cert, idx) => {
+                const card = document.createElement('div');
+                card.className = 'cert-card';
+                card.innerHTML = `
+                    <div class="cert-img">
+                        <img src="${cert.img}" alt="${cert.title}" loading="lazy" onerror="this.src='https://placehold.co/600x400?text=Missing+Image'">
+                    </div>
+                    <div class="cert-content">
+                        <h3>${cert.title}</h3>
+                        <div class="cert-issuer">${cert.issuer}</div>
+                        <p>${cert.desc || ''}</p>
+                        ${idx >= 6 ? `<button class="delete-cert" data-index="${idx}"><i class="fas fa-trash-alt"></i> Remove</button>` : ''}
+                    </div>
+                `;
+                const imgDiv = card.querySelector('.cert-img');
+                imgDiv.addEventListener('click', () => openFullSize(cert.img));
+                const delBtn = card.querySelector('.delete-cert');
+                if (delBtn) {
+                    delBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        certificatesData.splice(idx, 1);
+                        renderCertificates();
+                    });
+                }
+                certGrid.appendChild(card);
+            });
+        }
+
+        // ADD NEW CERTIFICATE FUNCTION
+        document.getElementById('addCertBtn').addEventListener('click', () => {
+            const title = document.getElementById('newCertTitle').value.trim();
+            const issuer = document.getElementById('newCertIssuer').value.trim();
+            const desc = document.getElementById('newCertDesc').value.trim();
+            let img = document.getElementById('newCertImg').value.trim();
+            if (!title || !issuer) {
+                alert('Please fill at least Title and Issuer.');
+                return;
+            }
+            if (!img) img = 'https://placehold.co/600x400?text=New+Certificate';
+            certificatesData.push({ title, issuer, desc: desc || 'Achievement added', img });
+            renderCertificates();
+            // clear inputs
+            document.getElementById('newCertTitle').value = '';
+            document.getElementById('newCertIssuer').value = '';
+            document.getElementById('newCertDesc').value = '';
+            document.getElementById('newCertImg').value = '';
+        });
+
+        // RENDER PROJECTS (original)
+        const projectsGrid = document.getElementById('projectsGrid');
+        function renderProjects() {
+            projectsGrid.innerHTML = '';
+            projectsData.forEach(proj => {
+                const card = document.createElement('div');
+                card.className = 'project-card';
+                card.innerHTML = `
+                    <div class="card-img">
+                        <img src="${proj.img}" alt="${proj.name}" loading="lazy" onerror="this.src='https://placehold.co/600x400?text=Missing+Image'">
+                    </div>
+                    <div class="card-content">
+                        <h3>${proj.name}</h3>
+                        <div class="tech-stack">${proj.tech.map(t => `<span>${t}</span>`).join('')}</div>
+                        <p style="margin-top:10px; font-size:0.8rem; color:#3b82f6;"><i class="fas fa-search-plus"></i> Click image to enlarge | Card for details</p>
+                    </div>
+                `;
+                const imgDiv = card.querySelector('.card-img');
+                imgDiv.addEventListener('click', (e) => { e.stopPropagation(); openFullSize(proj.img); });
+                card.addEventListener('click', (e) => { if (!e.target.closest('.card-img')) alert(`✨ ${proj.name}\nTechnologies: ${proj.tech.join(', ')}`); });
+                projectsGrid.appendChild(card);
+            });
+        }
+
+        // CAROUSEL
+        let slideIndex = 0, carouselInterval;
+        const carouselImg = document.getElementById('carouselImg');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const dotsContainer = document.getElementById('dotsContainer');
+
+        function updateCarousel(index) {
+            const imgPath = journeySlides[index % journeySlides.length];
+            carouselImg.src = imgPath;
+            carouselImg.onerror = function() { this.src = 'https://placehold.co/1200x675?text=Journey+Moment'; };
+            document.querySelectorAll('.dot').forEach((dot, i) => dot.classList.toggle('active', i === index));
+        }
+
+        function createDots() {
+            dotsContainer.innerHTML = '';
+            journeySlides.forEach((_, i) => {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (i === slideIndex) dot.classList.add('active');
+                dot.addEventListener('click', () => { clearInterval(carouselInterval); slideIndex = i; updateCarousel(slideIndex); startAutoSlide(); });
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        function startAutoSlide() {
+            if (carouselInterval) clearInterval(carouselInterval);
+            carouselInterval = setInterval(() => { slideIndex = (slideIndex + 1) % journeySlides.length; updateCarousel(slideIndex); }, 4000);
+        }
+
+        prevBtn.addEventListener('click', () => { clearInterval(carouselInterval); slideIndex = (slideIndex - 1 + journeySlides.length) % journeySlides.length; updateCarousel(slideIndex); startAutoSlide(); });
+        nextBtn.addEventListener('click', () => { clearInterval(carouselInterval); slideIndex = (slideIndex + 1) % journeySlides.length; updateCarousel(slideIndex); startAutoSlide(); });
+        document.getElementById('carouselClickable').addEventListener('click', () => openFullSize(carouselImg.src));
+
+        // CONTACT FORM
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const fb = document.getElementById('formFeedback');
+            fb.textContent = '✨ Message sent! I will reply soon.';
+            fb.style.color = '#166534';
+            setTimeout(() => fb.textContent = '', 4000);
+            e.target.reset();
+        });
+
+        // INITIALIZE ALL
+        renderCertificates();
+        renderProjects();
+        createDots();
+        updateCarousel(0);
+        startAutoSlide();
+    </script>
 </body>
 </html>
